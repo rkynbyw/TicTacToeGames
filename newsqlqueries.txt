@@ -1,0 +1,239 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jan 08, 2021 at 02:54 PM
+-- Server version: 10.4.16-MariaDB
+-- PHP Version: 7.4.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `game2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gamesessions`
+--
+
+CREATE TABLE `gamesessions` (
+  `sessionid` int(11) NOT NULL,
+  `pl1id` int(11) DEFAULT NULL,
+  `pl2id` int(11) DEFAULT NULL,
+  `box1` int(11) DEFAULT NULL,
+  `box2` int(11) DEFAULT NULL,
+  `box3` int(11) DEFAULT NULL,
+  `box4` int(11) DEFAULT NULL,
+  `box5` int(11) DEFAULT NULL,
+  `box6` int(11) DEFAULT NULL,
+  `box7` int(11) DEFAULT NULL,
+  `box8` int(11) DEFAULT NULL,
+  `box9` int(11) DEFAULT NULL,
+  `pl1scr` int(11) DEFAULT NULL,
+  `pl2scr` int(11) DEFAULT NULL,
+  `turn` int(11) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gamesessions`
+--
+
+INSERT INTO `gamesessions` (`sessionid`, `pl1id`, `pl2id`, `box1`, `box2`, `box3`, `box4`, `box5`, `box6`, `box7`, `box8`, `box9`, `pl1scr`, `pl2scr`, `turn`, `count`) VALUES
+(104, 12, 10, 2, 2, 2, 2, 1, 1, 0, 1, 1, 0, 0, 0, 8),
+(105, 10, 12, 1, 0, 0, 2, 1, 2, 1, 2, 1, 0, 0, 0, 7),
+(115, 10, 11, 0, 0, 1, 0, 1, 1, 2, 2, 2, 0, 0, 0, 6),
+(118, 11, 10, 0, 0, 2, 0, 2, 1, 2, 1, 1, 0, 0, 0, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kalah`
+--
+
+CREATE TABLE `kalah` (
+  `Id` int(11) NOT NULL,
+  `kalah` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kalah`
+--
+
+INSERT INTO `kalah` (`Id`, `kalah`) VALUES
+(11, 1),
+(11, 1),
+(11, 1),
+(11, 1),
+(11, 1),
+(11, 1),
+(11, 1),
+(11, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menang`
+--
+
+CREATE TABLE `menang` (
+  `Id` int(11) NOT NULL,
+  `menang` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `menang`
+--
+
+INSERT INTO `menang` (`Id`, `menang`) VALUES
+(10, 1),
+(10, 1),
+(10, 1),
+(10, 1),
+(10, 1),
+(10, 1),
+(10, 1),
+(10, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `online`
+--
+
+CREATE TABLE `online` (
+  `plrid` int(11) DEFAULT NULL,
+  `plrname` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `online`
+--
+
+INSERT INTO `online` (`plrid`, `plrname`) VALUES
+(9, 'amanda'),
+(8, 'pradnya'),
+(10, 'tes'),
+(11, 'tes2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requests`
+--
+
+CREATE TABLE `requests` (
+  `senderid` int(11) DEFAULT NULL,
+  `sendername` text DEFAULT NULL,
+  `recieverid` int(11) DEFAULT NULL,
+  `recievername` text DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  `requestid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seri`
+--
+
+CREATE TABLE `seri` (
+  `Id` int(11) NOT NULL,
+  `seri` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `seri`
+--
+
+INSERT INTO `seri` (`Id`, `seri`) VALUES
+(4, 1),
+(3, 1),
+(3, 1),
+(3, 1),
+(4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `Id` int(11) NOT NULL,
+  `username` text DEFAULT NULL,
+  `password` text DEFAULT NULL,
+  `image` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`Id`, `username`, `password`, `image`) VALUES
+(8, 'pradnya', '123', NULL),
+(9, 'amanda', '123', NULL),
+(10, 'tes', '1232', 'mina2.jpg'),
+(11, 'tes2', '1234', NULL),
+(12, 'ghina', '1', NULL),
+(13, 'devita', '123', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `gamesessions`
+--
+ALTER TABLE `gamesessions`
+  ADD PRIMARY KEY (`sessionid`);
+
+--
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`requestid`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `gamesessions`
+--
+ALTER TABLE `gamesessions`
+  MODIFY `sessionid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `requestid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
